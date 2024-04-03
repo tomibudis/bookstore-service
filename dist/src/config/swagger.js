@@ -7,6 +7,7 @@ exports.swaggerDocs = void 0;
 const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const package_json_1 = require("../../package.json");
+const isProduction = process.env.NODE_ENV === 'prod';
 const options = {
     definition: {
         openapi: "3.0.0",
@@ -15,7 +16,7 @@ const options = {
             version: package_json_1.version,
         },
     },
-    apis: ["./src/routes/api.routes.ts", "./src/entity/*.entity.ts"],
+    apis: isProduction ? ['./dist/src/routes/api.routes.js', './dist/src/entity/*.entity.js'] : ["./src/routes/api.routes.ts", "./src/entity/*.entity.ts"],
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(options);
 function swaggerDocs(app, port) {

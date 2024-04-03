@@ -13,7 +13,7 @@ const options: swaggerJsdoc.Options = {
       version,
     },
   },
-  apis: isProduction ? ['/dist/src/routes/api.routes.js', './src/entity/*.entity.js'] : ["./src/routes/api.routes.ts", "./src/entity/*.entity.ts"],
+  apis: isProduction ? ['./dist/src/routes/api.routes.js', './dist/src/entity/*.entity.js'] : ["./src/routes/api.routes.ts", "./src/entity/*.entity.ts"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
