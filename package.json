@@ -27,7 +27,7 @@
    },
    "scripts": {
       "start": "nodemon --exec ts-node src/index.ts",
-      "build": "npx tsc -p tsconfig.json --outDir dist",
+      "build": "npx tsc -p tsconfig.json",
       "drizzle:seed": "node --loader esbuild-register/loader -r esbuild-register ./src/config/seed.ts"
    }
 }
