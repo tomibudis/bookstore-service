@@ -12,8 +12,8 @@ https://hyperhire.notion.site/Fullstack-assignment_27-july-503a2bafa09c4b14bf9cf
 
 
 ## Deployment
-Host:
-Swagger Documentation:
+Host: https://bookstore-service.vercel.app/api
+Swagger Documentation: https://bookstore-service.vercel.app/docs
 
 ## Database Schema
 <a href="https://ibb.co/mJnhLBh"><img src="https://i.ibb.co/K6tVMGV/Screen-Shot-2024-04-04-at-01-10-54.png" alt="Screen-Shot-2024-04-04-at-01-10-54" border="0"></a>
