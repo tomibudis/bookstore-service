@@ -13,5 +13,7 @@
       "sourceMap": true,
       "resolveJsonModule": true,
       "esModuleInterop": true,
-   }
+      "skipLibCheck": true,
+   },
+   "exclude": ["node_modules", "drizzle.config.ts", "node_modules/drizzle-orm/*"],
 }

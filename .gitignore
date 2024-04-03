@@ -2,5 +2,9 @@
 .vscode/
 node_modules/
 build/
+dist/
 tmp/
 temp/
+
+drizze.config.js
+drizze.config.js.map
