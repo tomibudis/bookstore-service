@@ -12,7 +12,7 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.get('/', (_, res) => {
     res.json({
-        message: 'All system are good! 👋🌎🚀',
+        message: `All system are good! 👋🌎🚀 ${process.env.NODE_ENV}`,
     });
 });
 app.use('/api', api_routes_1.default);

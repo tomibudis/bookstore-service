@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.get<Record<string, unknown>, { message: string }>('/', (_, res) => {
   res.json({
-    message: 'All system are good! 👋🌎🚀',
+    message: `All system are good! 👋🌎🚀 ${process.env.NODE_ENV}`,
   });
 });
 
