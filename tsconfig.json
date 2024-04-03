@@ -18,5 +18,6 @@
       "noImplicitAny": true,
       "baseUrl": ".",
    },
-   "exclude": ["node_modules", "drizzle.config.ts", "node_modules/drizzle-orm/*"],
+  "include": ["**/*.ts"],
+   "exclude": ["node_modules", "drizzle.config.ts", "**/node_modules/**/*.d.ts", "typings"],
 }
