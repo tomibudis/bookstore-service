@@ -11,25 +11,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderController = void 0;
 const order_service_1 = require("../service/order.service");
+const orderService = new order_service_1.OrderService();
 class OrderController {
-    constructor() {
-        this.orderService = new order_service_1.OrderService();
-    }
     createOrderController(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const order = yield this.orderService.createOrder(req.body);
+            const order = yield orderService.createOrder(req.body);
             res.status(201).json(order);
         });
     }
     listOrderController(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const orders = yield this.orderService.getAllOrders(req.query);
+            const orders = yield orderService.getAllOrders(req.query);
             res.status(200).json(orders);
         });
     }
     cancelOrderController(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.orderService.cancelOrder(req.body.id, req.body.bookId, req.body.userId);
+            yield orderService.cancelOrder(req.body.id, req.body.bookId, req.body.userId);
             res.status(200).json({
                 messages: 'Cancel order successfully',
             });
@@ -37,7 +35,7 @@ class OrderController {
     }
     approveOrderController(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.orderService.approveOrder(req.body.id, req.body.bookId, req.body.userId);
+            yield orderService.approveOrder(req.body.id, req.body.bookId, req.body.userId);
             res.status(200).json({
                 messages: 'Approve order successfully',
             });

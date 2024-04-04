@@ -34,7 +34,14 @@ export class OrderService {
   }
 
   async cancelOrder (id: number, bookId: number, userId: number) {
-    return this.orderRepository.updateOrder({ status: 'canceled', bookId, userId }, id);
+    const user = await this.userRepository.findById(userId);
+    const book = await this.bookRepository.findById(bookId);
+    
+    return this.orderRepository.updateOrder({ status: 'canceled', bookId, userId }, id).then((orders) => {
+      // NOTE: return back the point when the user cancel the order
+      this.userRepository.update({ point: user.point + book.point }, userId);
+      return orders.at(0);
+    });
   }
 
   async approveOrder (id: number, bookId: number, userId: number) {

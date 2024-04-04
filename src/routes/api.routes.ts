@@ -207,7 +207,7 @@ router.post('/order', orderController.createOrderController);
 /**
  * @openapi
  * '/api/cancel-order':
- *  get:
+ *  post:
  *     tags:
  *     - Orders
  *     summary: Cancel Order

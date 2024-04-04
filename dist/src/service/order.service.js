@@ -41,7 +41,13 @@ class OrderService {
     }
     cancelOrder(id, bookId, userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.orderRepository.updateOrder({ status: 'canceled', bookId, userId }, id);
+            const user = yield this.userRepository.findById(userId);
+            const book = yield this.bookRepository.findById(bookId);
+            return this.orderRepository.updateOrder({ status: 'canceled', bookId, userId }, id).then((orders) => {
+                // NOTE: return back the point when the user cancel the order
+                this.userRepository.update({ point: user.point + book.point }, userId);
+                return orders.at(0);
+            });
         });
     }
     approveOrder(id, bookId, userId) {
