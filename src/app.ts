@@ -9,7 +9,7 @@ import {swaggerDocs} from './config/swagger';
 const app = express();
 const corsOptions = {
   credentials: true,
-  origin: ['http://localhost:3000', 'http://localhost:80']
+  origin: "*"
 }
 app.use(cors(corsOptions));
 
