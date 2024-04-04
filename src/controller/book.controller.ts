@@ -12,6 +12,7 @@ interface Payload {
 interface Params {
   limit: number;
   page: number;
+  keyword?: string;
 }
 
 const bookService = new BookService();
@@ -23,8 +24,8 @@ export class BookController {
     res.status(201).json({ ...books.at(0) })
   }
 
-  async listBookController(req: Request<Params>, res: Response<Book[]>) {
-    const books = await bookService.getAllBooks(req.params);
+  async listBookController(req: Request<{}, {}, {}, Params>, res: Response<Book[]>) {
+    const books = await bookService.getAllBooks(req.query);
 
     res.status(200).json(books);
   }

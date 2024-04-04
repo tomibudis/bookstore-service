@@ -21,8 +21,8 @@ export class OrderController {
     res.status(201).json(order);
   }
 
-  async listOrderController (req: Request<Params>, res: Response<Order[]>) {
-    const orders = await this.orderService.getAllOrders(req.params);
+  async listOrderController (req: Request<{}, {}, {}, Params>, res: Response<Order[]>) {
+    const orders = await this.orderService.getAllOrders(req.query);
     res.status(200).json(orders);
   }
 
