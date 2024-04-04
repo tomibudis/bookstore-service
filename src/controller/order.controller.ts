@@ -13,28 +13,30 @@ interface Payload {
   bookId: number;
   userId: number;
 }
+
+const orderService = new OrderService();
+
 export class OrderController {
-  private orderService = new OrderService();
   
   async createOrderController (req: Request, res: Response<Order>) {
-    const order = await this.orderService.createOrder(req.body);
+    const order = await orderService.createOrder(req.body);
     res.status(201).json(order);
   }
 
   async listOrderController (req: Request<{}, {}, {}, Params>, res: Response<Order[]>) {
-    const orders = await this.orderService.getAllOrders(req.query);
+    const orders = await orderService.getAllOrders(req.query);
     res.status(200).json(orders);
   }
 
   async cancelOrderController (req: Request<{}, Payload>, res: Response) {
-    await this.orderService.cancelOrder(req.body.id, req.body.bookId, req.body.userId);
+    await orderService.cancelOrder(req.body.id, req.body.bookId, req.body.userId);
     res.status(200).json({
       messages: 'Cancel order successfully',
     });
   }
 
   async approveOrderController (req: Request<{}, Payload>, res: Response) {
-    await this.orderService.approveOrder(req.body.id, req.body.bookId, req.body.userId);
+    await orderService.approveOrder(req.body.id, req.body.bookId, req.body.userId);
 
     res.status(200).json({
       messages: 'Approve order successfully',
