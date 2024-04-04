@@ -7,11 +7,14 @@ import api from './routes/api.routes';
 import {swaggerDocs} from './config/swagger';
 
 const app = express();
-const corsOptions = {
-  credentials: true,
-  origin: "*"
-}
-app.use(cors(corsOptions));
+
+app.use(cors({
+  origin: "*",
+  allowedHeaders: "*",
+  optionsSuccessStatus: 200,
+  methods: "*",
+  exposedHeaders: "*"
+}));
 
 app.use(express.json());
 
