@@ -6,9 +6,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require('dotenv').config();
 require("dotenv/config");
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const api_routes_1 = __importDefault(require("./routes/api.routes"));
 const swagger_1 = require("./config/swagger");
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)({
+    origin: "*",
+    allowedHeaders: "*",
+    optionsSuccessStatus: 200,
+    methods: "*",
+    exposedHeaders: "*"
+}));
 app.use(express_1.default.json());
 app.get('/', (_, res) => {
     res.json({
