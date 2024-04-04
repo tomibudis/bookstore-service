@@ -8,8 +8,8 @@ import {swaggerDocs} from './config/swagger';
 
 const app = express();
 const corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
+  credentials: true,
+  origin: true
 }
 app.use(cors(corsOptions));
 
