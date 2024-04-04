@@ -21,7 +21,7 @@ class BookController {
     }
     listBookController(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const books = yield bookService.getAllBooks(req.params);
+            const books = yield bookService.getAllBooks(req.query);
             res.status(200).json(books);
         });
     }

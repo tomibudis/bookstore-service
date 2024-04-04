@@ -23,7 +23,7 @@ class OrderController {
     }
     listOrderController(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const orders = yield this.orderService.getAllOrders(req.params);
+            const orders = yield this.orderService.getAllOrders(req.query);
             res.status(200).json(orders);
         });
     }
