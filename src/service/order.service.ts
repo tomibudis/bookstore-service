@@ -8,6 +8,7 @@ type Payload = typeof orderEntity.$inferInsert;
 interface OrderParams {
   page: number;
   limit: number;
+  userId: number;
 }
 export class OrderService {
   private orderRepository = new OrderRepository();
@@ -18,6 +19,7 @@ export class OrderService {
     return this.orderRepository.findAll({
       limit: params.limit,
       offset: params.limit * (params.page - 1),
+      userId: params.userId,
     });
   }
 

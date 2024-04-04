@@ -24,6 +24,7 @@ class OrderService {
             return this.orderRepository.findAll({
                 limit: params.limit,
                 offset: params.limit * (params.page - 1),
+                userId: params.userId,
             });
         });
     }

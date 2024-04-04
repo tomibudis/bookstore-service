@@ -18,10 +18,11 @@ const database_1 = require("../config/database");
 const order_entity_1 = __importDefault(require("../entity/order.entity"));
 class OrderRepository {
     findAll(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ limit, offset }) {
+        return __awaiter(this, arguments, void 0, function* ({ limit, offset, userId }) {
             return database_1.db.query.orders.findMany({
                 limit,
                 offset,
+                where: (0, drizzle_orm_1.eq)(order_entity_1.default.userId, userId)
             });
         });
     }

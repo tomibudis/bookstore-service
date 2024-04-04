@@ -5,10 +5,11 @@ import orderEntity from "../entity/order.entity";
 type Payload = typeof orderEntity.$inferInsert;
 
 export class OrderRepository {
-  async findAll({ limit, offset }: { limit: number, offset: number }) {
+  async findAll({ limit, offset, userId }: { limit: number, offset: number, userId: number }) {
     return db.query.orders.findMany({
       limit,
       offset,
+      where: eq(orderEntity.userId, userId)
     })
   }
 

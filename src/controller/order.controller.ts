@@ -7,7 +7,9 @@ interface Params {
   limit: number;
   page: number;
   keyword?: string;
+  userId: number;
 }
+
 interface Payload {
   id: number;
   bookId: number;
